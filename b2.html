@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>nhập độ C</p>
+<input id="doC" type="text">
+<button onclick="doi()">đổi nhiệt độ</button>
+<p id="doF"></p>
+<p id="doK"></p>
+    <script>
+        class Temperature {
+            doC
+            constructor(doC) {
+                this.doC = doC
+            }
+            getDoF (){
+                if (this.doC<-273){
+                    return -500
+                }else {
+                    return 9*this.doC/5+32
+                }
+            }
+            getDoK (){
+                if (this.doC<-273){
+                    return -5
+                }else {
+                    return this.doC+273.15
+                }
+            }
+        }
+        // let doC = new Temperature(-300)
+
+        function doi() {
+            let doC = +document.getElementById('doC').value
+            let chuyen = new Temperature(doC)
+            let doF = chuyen.getDoF()
+            if (doF==-500){
+                document.getElementById('doF').innerHTML='không đổi được'
+            }else {
+                document.getElementById('doF').innerHTML='độ F là:'+doF
+            }
+            let doK = chuyen.getDoK()
+            if (doK==-5){
+                document.getElementById('doK').innerHTML='không đổi được'
+            }else {
+                document.getElementById('doK').innerHTML='độ k là: '+doK
+            }
+        }
+    </script>
+</body>
+</html>
